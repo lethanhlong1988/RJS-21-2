@@ -21,7 +21,7 @@
 // BONUS: Add another (nested) layout route that adds the <EventNavigation> component above all /events... page components
 
 function App() {
-  return <div></div>;
+  return <div>12-2</div>;
 }
 
 export default App;
