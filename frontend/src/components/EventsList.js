@@ -8,7 +8,7 @@ function EventsList({ events }) {
         <li>Events</li>
         {events.map((event) => (
           <li key={event.id} className={classes.item}>
-            <a href="...">
+            <a href="events/#">
               <img src={event.image} alt={event.title} />
               <div className={classes.content}>
                 <h3>{event.title}</h3>
