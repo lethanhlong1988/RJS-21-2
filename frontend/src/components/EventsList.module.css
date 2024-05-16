@@ -30,7 +30,9 @@
 
 .content {
   padding: 1rem;
+  color: rgb(206, 204, 204);
+  font-size: 0.75rem;
 }
-.item h2 {
+.item h3 {
   margin: 0 0 1rem 0;
 }
