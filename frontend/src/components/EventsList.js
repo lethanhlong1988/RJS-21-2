@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import classes from "./EventsList.module.css";
 
 function EventsList({ events }) {
@@ -8,13 +10,13 @@ function EventsList({ events }) {
         <li>Events</li>
         {events.map((event) => (
           <li key={event.id} className={classes.item}>
-            <a href="events/#">
+            <Link to={event.id}>
               <img src={event.image} alt={event.title} />
               <div className={classes.content}>
                 <h3>{event.title}</h3>
                 <time>{event.date}</time>
               </div>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
