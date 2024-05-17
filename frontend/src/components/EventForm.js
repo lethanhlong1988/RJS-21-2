@@ -1,6 +1,9 @@
 import classes from "./EventForm.module.css";
 
-function EventForm() {
+function EventForm({ event }) {
+  function cancelHandler() {
+    console.log("cancel!!!");
+  }
   return (
     <form className={classes.form}>
       <p>
@@ -10,16 +13,28 @@ function EventForm() {
           id="title"
           name="title"
           required
-          defaultValue="title"
+          defaultValue={event ? event.title : "title"}
         />
       </p>
       <p>
         <label htmlFor="image">Image</label>
-        <input type="url" id="image" name="image" required defaultValue="url" />
+        <input
+          type="url"
+          id="image"
+          name="image"
+          required
+          defaultValue={event ? event.image : "url"}
+        />
       </p>
       <p>
         <label htmlFor="date">Date</label>
-        <input type="date" id="date" name="date" required defaultValue="date" />
+        <input
+          type="date"
+          id="date"
+          name="date"
+          required
+          defaultValue={event ? event.date : ""}
+        />
       </p>
       <p>
         <label htmlFor="description">Desscription</label>
@@ -28,11 +43,13 @@ function EventForm() {
           name="description"
           rows="5"
           required
-          defaultValue="description"
+          defaultValue={event ? event.description : "description"}
         />
       </p>
       <div className={classes.actions}>
-        <button>Cancel</button>
+        <button type="button" onClick={cancelHandler}>
+          Cancel
+        </button>
         <button>Save</button>
       </div>
     </form>
