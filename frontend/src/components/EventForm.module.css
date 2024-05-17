@@ -1,6 +1,11 @@
 .form {
-  max-width: 40rem;
-  margin: 2rem auto;
+  max-width: 25rem;
+  margin: 0.5rem auto;
+  font-size: 0.75rem;
+}
+
+.form p {
+  margin: 0;
 }
 
 .form label,
@@ -13,16 +18,17 @@
 .form input,
 .form textarea {
   font: inherit;
-  padding: 0.25rem;
+  padding: 0.1rem;
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: flex-end;
 }
 
 .actions button {
+  margin-top: 0.25rem;
   font: inherit;
   cursor: pointer;
   padding: 0.5rem 1.5rem;
@@ -32,7 +38,7 @@
   border: none;
 }
 
-.actions button[type='button'] {
+.actions button[type="button"] {
   background-color: transparent;
   color: var(--color-gray-300);
 }
@@ -41,6 +47,6 @@
   background-color: var(--color-primary-300);
 }
 
-.actions button[type='button']:hover {
+.actions button[type="button"]:hover {
   background-color: var(--color-gray-800);
 }
