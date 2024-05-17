@@ -20,7 +20,6 @@ export async function loader({ params }) {
 
   const response = await fetch(`http://localhost:8080/events/` + id);
   if (!response.ok) {
-    console.log("fetch failed");
     throw json(
       { message: "Could not fetch details for selected event." },
       { status: 500 },
