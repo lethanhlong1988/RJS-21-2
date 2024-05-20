@@ -1,4 +1,4 @@
-import { redirect } from "react-router-dom";
+import { json, redirect } from "react-router-dom";
 
 import EventForm from "../components/EventForm";
 
@@ -7,7 +7,7 @@ function NewEventPage() {
 }
 export default NewEventPage;
 
-export async function action({ request }) {
+export async function action({ request, params }) {
   const data = await request.formData();
 
   const eventData = {
@@ -16,7 +16,17 @@ export async function action({ request }) {
     date: data.get("date"),
     description: data.get("description"),
   };
+
+  const response = await fetch("http://localhost:8080/events", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(eventData),
+  });
+  if (!response.ok) {
+    throw json({ message: "Could not save event." }, { status: 500 });
+  }
   console.log(eventData);
-  console.log("Chuan bi create New Event!!!");
   return redirect("/events");
 }

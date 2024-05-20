@@ -20,7 +20,7 @@ function EventForm({ event }) {
           id="title"
           name="title"
           required
-          defaultValue={event ? event.title : "title"}
+          defaultValue={event ? event.title : "New Title"}
         />
       </p>
       <p>
@@ -30,7 +30,11 @@ function EventForm({ event }) {
           id="image"
           name="image"
           required
-          defaultValue={event ? event.image : "url"}
+          defaultValue={
+            event
+              ? event.image
+              : "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg"
+          }
         />
       </p>
       <p>
@@ -50,7 +54,7 @@ function EventForm({ event }) {
           name="description"
           rows="5"
           required
-          defaultValue={event ? event.description : "description"}
+          defaultValue={event ? event.description : "description 123"}
         />
       </p>
       <div className={classes.actions}>
