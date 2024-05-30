@@ -13,6 +13,13 @@
       "date": "2023-05-19",
       "image": "https://spotme.com/wp-content/uploads/2020/07/Hero-1.jpg",
       "description": "Review - Event-02."
+    },
+    {
+      "id": "e3",
+      "title": "A dummy event-3",
+      "date": "2023-09-12",
+      "image": "https://spotme.com/wp-content/uploads/2020/07/Hero-1.jpg",
+      "description": "Review - Event-03."
     }
   ]
 }
