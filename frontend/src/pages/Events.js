@@ -37,7 +37,7 @@ function EventsPage() {
   return (
     <>
       <h3>Events Page</h3>
-      <div>
+      <div style={{ textAlign: "center" }}>
         {isLoading && <p>Loading...</p>}
         {error && <p>{error}</p>}
       </div>
