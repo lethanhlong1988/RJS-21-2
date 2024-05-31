@@ -4,9 +4,9 @@ import classes from "./EventsNavigation.module.css";
 
 function EventsNavigation() {
   return (
-    <header>
+    <header className={classes.header}>
       <nav>
-        <ul>
+        <ul className={classes.list}>
           <li>
             <NavLink
               to="/events"
