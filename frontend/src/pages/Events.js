@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
+import EventsList from "../components/EventsList";
 
 const DUMMY_EVENTS = [
   {
@@ -14,26 +14,38 @@ const DUMMY_EVENTS = [
 ];
 
 function EventsPage() {
-  async function fetchEvents() {
-    const response = await fetch("http://localhost:8080/events");
-    if (!response.ok) {
-      //Thong bao loi va su ly ....
-    } else {
-      const resData = await response.json();
-      console.log(resData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [fetchedEvents, setFetchedEvents] = useState();
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    async function fetchEvents() {
+      setIsLoading(true);
+      const response = await fetch("http://localhost:8080/events");
+      if (!response.ok) {
+        //Thong bao loi va su ly ....
+        setError("Fetching events failed.");
+      } else {
+        const resData = await response.json();
+        setFetchedEvents(resData.events);
+      }
+      setIsLoading(false);
     }
-  }
-  fetchEvents();
+    fetchEvents();
+  }, []);
+
   return (
     <>
       <h3>Events Page</h3>
-      <ul>
-        {DUMMY_EVENTS.map((event) => (
-          <li key={event.id}>
-            <Link to={event.id}>{event.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <div>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+      </div>
+      {!isLoading && fetchedEvents && (
+        <div>
+          <EventsList events={fetchedEvents} />
+        </div>
+      )}
     </>
   );
 }
