@@ -9,7 +9,7 @@ function EventDetailPage() {
     <div>
       <div>Event Detail Page</div>
       <p>Event ID: {params.eventId}</p>
-      <EventItem />
+      <EventItem event={data.event} />
     </div>
   );
 }
