@@ -8,3 +8,12 @@ function NewEventPage() {
   );
 }
 export default NewEventPage;
+
+export function action({ request, params }) {
+  console.log("action");
+  // const data = request.formData();
+
+  // fetch("http://localhost:8080/events", {
+  //   method: "POST",
+  // });
+}

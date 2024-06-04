@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Form } from "react-router-dom";
 
 import classes from "./EventForm.module.css";
 
@@ -10,7 +10,7 @@ function EventForm({ method, event }) {
     navigate("..");
   }
   return (
-    <form className={classes.form}>
+    <Form method="post" className={classes.form}>
       <p>
         <label htmlFor="title">Title</label>
         <input
@@ -18,7 +18,7 @@ function EventForm({ method, event }) {
           id="title"
           name="title"
           required
-          defaultValue={event ? event.title : ""}
+          defaultValue={event ? event.title : "Test Event"}
         />
       </p>
       <p>
@@ -28,7 +28,11 @@ function EventForm({ method, event }) {
           id="image"
           name="image"
           required
-          defaultValue={event ? event.image : ""}
+          defaultValue={
+            event
+              ? event.image
+              : "https://spotme.com/wp-content/uploads/2020/07/Hero-1.jpg"
+          }
         />
       </p>
       <p>
@@ -38,7 +42,7 @@ function EventForm({ method, event }) {
           id="date"
           name="date"
           required
-          defaultValue={event ? event.date : ""}
+          defaultValue={event ? event.date : "2025-09-10"}
         />
       </p>
       <p>
@@ -48,14 +52,14 @@ function EventForm({ method, event }) {
           name="description"
           row="3"
           required
-          defaultValue={event ? event.description : ""}
+          defaultValue={event ? event.description : "Review Event!!!"}
         />
       </p>
       <div className={classes.actions}>
         <button onClick={cancelHandler}>Cancel</button>
         <button>Save</button>
       </div>
-    </form>
+    </Form>
   );
 }
 export default EventForm;
