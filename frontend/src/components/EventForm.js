@@ -1,9 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 import classes from "./EventForm.module.css";
 
 function EventForm() {
+  const navigate = useNavigate();
   function cancelHandler() {
     // ...
     console.log("Cancel Handler");
+    navigate("..");
   }
   return (
     <form className={classes.form}>
