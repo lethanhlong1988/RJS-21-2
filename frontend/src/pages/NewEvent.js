@@ -1,7 +1,9 @@
+import EventForm from "../components/EventForm";
+
 function NewEventPage() {
   return (
     <div>
-      <div>New Event</div>
+      <EventForm />
     </div>
   );
 }
