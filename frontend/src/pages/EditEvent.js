@@ -1,7 +1,9 @@
+import EventForm from "../components/EventForm";
+
 function EditEventPage() {
   return (
     <div>
-      <div>Edit Event Page!!!</div>
+      <EventForm />
     </div>
   );
 }
