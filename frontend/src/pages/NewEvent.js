@@ -9,9 +9,16 @@ function NewEventPage() {
 }
 export default NewEventPage;
 
-export function action({ request, params }) {
-  console.log("action");
-  // const data = request.formData();
+export async function action({ request, params }) {
+  const data = await request.formData();
+
+  const eventData = {
+    title: data.get("title"),
+    image: data.get("image"),
+    date: data.get("date"),
+    description: data.get("description"),
+  };
+  console.log(eventData);
 
   // fetch("http://localhost:8080/events", {
   //   method: "POST",

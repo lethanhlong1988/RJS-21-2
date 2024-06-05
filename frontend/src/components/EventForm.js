@@ -57,7 +57,7 @@ function EventForm({ method, event }) {
       </p>
       <div className={classes.actions}>
         <button onClick={cancelHandler}>Cancel</button>
-        <button>Save</button>
+        <button typy="submit">Save</button>
       </div>
     </Form>
   );
