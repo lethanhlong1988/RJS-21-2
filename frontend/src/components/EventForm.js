@@ -18,7 +18,7 @@ function EventForm({ method, event }) {
           id="title"
           name="title"
           required
-          defaultValue={event ? event.title : "Test Event"}
+          defaultValue={event ? event.title : "Test Event-01"}
         />
       </p>
       <p>
@@ -52,7 +52,7 @@ function EventForm({ method, event }) {
           name="description"
           row="3"
           required
-          defaultValue={event ? event.description : "Review Event!!!"}
+          defaultValue={event ? event.description : "Review Event!!! Test-01"}
         />
       </p>
       <div className={classes.actions}>

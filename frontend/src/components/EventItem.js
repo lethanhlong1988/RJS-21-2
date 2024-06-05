@@ -5,7 +5,11 @@ import classes from "./EventItem.module.css";
 function EventItem({ event }) {
   function startDeleteHandler() {
     // ...
-    console.log("start Delete!!!");
+    const proceed = window.confirm("Are you sure?");
+
+    if (proceed) {
+      //Tien hanh xoa
+    }
   }
   return (
     <article className={classes.event}>
