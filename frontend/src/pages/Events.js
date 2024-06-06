@@ -1,26 +1,19 @@
-import { useLoaderData, json } from "react-router-dom";
+import { useLoaderData, json, defer, Await } from "react-router-dom";
 
 import EventsList from "../components/EventsList";
 
 function EventsPage() {
-  const data = useLoaderData();
-  // if (data.isError) {
-  //   // Thong bao va su ly loi
-  //   return <p>{data.massage}</p>;
-  // }
-
-  const events = data.events;
+  const { events } = useLoaderData();
   return (
-    <>
-      <h3>Events Page</h3>
-      <EventsList events={events} />
-    </>
+    <Await resolve={events}>
+      {(loadedEvents) => <EventsList events={loadedEvents} />}
+    </Await>
   );
 }
 
 export default EventsPage;
 
-export async function loader() {
+async function loadEvents() {
   const response = await fetch("http://localhost:8080/events");
   if (!response.ok) {
     //Thong bao loi va su ly ....
@@ -32,4 +25,10 @@ export async function loader() {
   } else {
     return response;
   }
+}
+
+export async function loader() {
+  return defer({
+    events: loadEvents(),
+  });
 }
